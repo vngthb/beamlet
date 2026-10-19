@@ -96,10 +96,10 @@ sequenceDiagram
     J->>W: proc_lib:start_link
     W-->>J: init_ack: worker has started
     J-->>S: Worker PID
-    Note over C,S: Caller waits; session returns noreply and handles other messages
+    Note over C,S: Caller waits while the session handles other messages
     W->>G: Open connection and send Docker request
     G-->>W: HTTP response messages
-    Note over W,G: Repeat for startup and readiness; close each HTTP connection
+    Note over W,G: Repeat for startup and readiness. Close each HTTP connection
     W-->>S: {job_done, WorkerPid, Result}
     S->>S: Remove job tracking and update resource state
     S-->>C: gen_server:reply with result
