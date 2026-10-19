@@ -1,0 +1,16 @@
+{application, beamlet, [
+    {description, "Disposable Docker containers for Erlang/OTP"},
+    {vsn, "0.1.0"},
+    {registered, [beamlet_sup]},
+    {applications, [
+        kernel,
+        stdlib,
+        crypto,
+        gun
+    ]},
+    {mod, {beamlet_app, []}},
+    {env, [{config, #{}}]},
+    {modules, []},
+    {licenses, ["Apache-2.0"]},
+    {links, []}
+]}.
